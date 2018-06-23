@@ -1,0 +1,39 @@
+<html>
+<head>
+  <script language="JavaScript" src="js/hammer.js" type="text/JavaScript"> </script>
+</head>
+
+<body onload="game_start()" onKeyDown="if (!finished) keyboard_event(event)">
+
+  <audio src="audio/boo.mp3" type="audio/mpeg" width="0" height="0" id="boo"> </audio>
+  <audio src="audio/ouch.mp3" type="audio/mpeg" width="0" height="0" id="ouch"> </audio>
+
+  <table border="10" width="300">
+    <tr>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+    </tr>
+    <tr>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+    </tr>
+    <tr>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+      <td height="100" width="100"> <img src="img/empty.png" height="100" width="100"> </td>
+    </tr>
+  </table>
+  
+  <div id="timer_text" style="font-size:32pt">
+    Time remaining: 10 sec
+  </div>
+
+  <div id="score_text" style="font-size:32pt">
+    Score: 0
+  </div>
+
+</body>
+
+</html>
