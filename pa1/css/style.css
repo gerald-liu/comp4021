@@ -1,0 +1,28 @@
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 62.5%;
+}
+
+.ui-autocomplete-category {
+	color: red;
+	font-weight: bold;
+	padding: .2em .4em;
+	margin: .8em 0 .2em;
+	line-height: 1.5;
+}
+
+.ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.match-character {
+	font-weight: bold;
+	text-decoration: underline;
+	color: blue;
+}
+
+.ui-state-focus {
+    font-size: 16px;
+}
