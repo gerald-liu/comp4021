@@ -14,6 +14,8 @@ if (!$xmlh->fileExist()) {
     exit;
 }
 
-header("Location: login.php");
+setcookie("name","");
+
+echo "<script>window.parent.location.reload()</script>";
 
 ?>

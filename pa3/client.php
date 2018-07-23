@@ -36,23 +36,21 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         <form action="add_message.php" method="post">
             <table border="0" cellspacing="5" cellpadding="0">
                 <tr>
-                    <td>What is your message?</td>
+                    <td colspan="3">What is your message?</td>
                 </tr>
                 <tr>
-                    <td><input class="text" type="text" name="message" id="msg" style= "width: 780px" /></td>
+                    <td colspan="3"><input class="text" type="text" name="message" id="msg" style= "width: 780px" /></td>
                 </tr>
                 <tr>
                     <td><input class="button" type="submit" value="Send Your Message" style="width: 200px" /></td>
-                    <td>Choose your color: </td>
+                    <td valign="middle" align="right">Choose your color:</td>
                     <td>
-						<div style="position:relative">
-							<div style="background-color:black;left:0px" onclick="chooseColor('black')"></div>
-							<div style="background-color:cyan;left:50px" onclick="chooseColor('cyan')"></div>
-							<div style="background-color:red;left:100px" onclick="chooseColor('red')"></div>
-							<div style="background-color:green;left:150px" onclick="chooseColor('green')"></div>
-							<div style="background-color:blue;left:200px" onclick="chooseColor('blue')"></div>
-							<div style="background-color:pink;left:250px" onclick="chooseColor('pink')"></div>
-						</div>
+						<button style="background-color:black;width:30px;height:30px" onclick="chooseColor('black');return false;"/>
+						<button style="background-color:cyan;width:30px;height:30px" onclick="chooseColor('cyan');return false;"/>
+						<button style="background-color:red;width:30px;height:30px" onclick="chooseColor('red');return false;"/>
+						<button style="background-color:green;width:30px;height:30px" onclick="chooseColor('green');return false;"/>
+						<button style="background-color:blue;width:30px;height:30px" onclick="chooseColor('blue');return false;"/>
+						<button style="background-color:pink;width:30px;height:30px" onclick="chooseColor('pink');return false;"/>
 					</td>
                 </tr>
             </table>
@@ -60,6 +58,12 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         </form>
         
         <!--logout button-->
-        <a href="logout.php">Click here to logout</a>
+        <form action="logout.php" method="post"> 
+			<table border="0" cellspacing="5" cellpadding="0">
+				<tr>
+					<td><input class="button" type="submit" value="Logout" style="width:200px"/></td>
+				</tr>
+			<table>
+		</form>
     </body>
 </html>

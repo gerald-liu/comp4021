@@ -31,22 +31,24 @@ if (!$xmlh->fileExist()) {
 
 $xmlh->openFile();
 
-// Get the 'messages' element as the current element
-$messages_element = $xmlh->getElement("messages");
+if($message != "__EMPTY__") {
+	// Get the 'messages' element as the current element
+	$messages_element = $xmlh->getElement("messages");
 
-// Create a 'message' element for each message
-$message_element = $xmlh->addElement($messages_element, "message");
+	// Create a 'message' element for each message
+	$message_element = $xmlh->addElement($messages_element, "message");
 
-// Add the name
-$xmlh->setAttribute($message_element, "name", $_COOKIE["name"]);
-$xmlh->setAttribute($message_element, "color", $_POST["color"]);
+	// Add the name
+	$xmlh->setAttribute($message_element, "name", $_COOKIE["name"]);
+	$xmlh->setAttribute($message_element, "color", $_POST["color"]);
 
-//$xmlh->addAttribute($message_element, "color" $color);
+	//$xmlh->addAttribute($message_element, "color" $color);
 
-// Add the content of the message
-$xmlh->addText($message_element, $message);
+	// Add the content of the message
+	$xmlh->addText($message_element, $message);
 
-$xmlh->saveFile();
+	$xmlh->saveFile();
+}
 
 header("Location: client.php");
 

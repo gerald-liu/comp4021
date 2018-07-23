@@ -153,6 +153,12 @@ class xmlHandler {
 	function setAttribute($element, $attribute_name, $value) {
 		$element->setAttribute($attribute_name, $value);
 	}
+	
+	/**
+	function addAttribute($element, $attribute_name, $value) {
+		$element->addAttribute($attribute_name, $value);
+	}
+	**/
 
 	/**
 	* get an attribute of an element node

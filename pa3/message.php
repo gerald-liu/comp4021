@@ -24,6 +24,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
         function load() {
             var username = document.getElementById("username");
             if (username.value == "") {
+				if(document.cookie.match("name")!=null)window.location.reload();
                 loadTimer = setTimeout("load()", 100);
                 return;
             }
@@ -94,6 +95,14 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
 			}
 
 			lastMsgID = messages.length;
+
+			var newHeight = ((lastMsgID+1)*20)+35;
+			if(newHeight < 340) newHeight = 340;
+			var svg_doc = document.getElementById("svg_doc");
+			svg_doc.setAttribute("height",newHeight);
+			var chatroom_bg = svg_doc.getElementById("chatroom_bg");
+			chatroom_bg.setAttribute("height",newHeight);
+			window.scrollTo(0,newHeight);
         }
 
         function showMessage(nameStr, contentStr, colorStr){
@@ -111,12 +120,11 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                 node.appendChild(nameNode);
 
                 // Create the content text span
-                var conetentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+                var contentNode = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
 
                 // Set the attributes and create the text
-                conetentNode.setAttribute("x", 200);
-                conetentNode.setAttribute("fill", colorStr);
-                //conetentNode.appendChild(document.createTextNode(contentStr));
+                contentNode.setAttribute("x", 200);
+                contentNode.setAttribute("fill", colorStr);
 
                 // Automatic Hyperlink
                 var currIndex = 0;
@@ -152,7 +160,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
                 }
 
                 // Add the content to the text node
-                node.appendChild(conetentNode);
+                node.appendChild(contentNode);
         }
 
         //]]>
@@ -160,7 +168,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
     </head>
 
     <body style="text-align: left" onload="load()" onunload="unload()">
-    <svg width="800px" height="2000px"
+    <svg width="800px" height="340px" id="svg_doc"
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xhtml="http://www.w3.org/1999/xhtml"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -168,7 +176,7 @@ print "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
      >
 
         <g id="chatroom" style="visibility:hidden">                
-        <rect width="520" height="2000" style="fill:white;stroke:red;stroke-width:2"/>
+        <rect id="chatroom_bg" width="520" height="340" style="fill:white;stroke:red;stroke-width:2"/>
         <text x="260" y="40" style="fill:red;font-size:30px;font-weight:bold;text-anchor:middle">Chat Window</text> 
         <text id="chattext" y="45" style="font-size: 20px;font-weight:bold"/>
       </g>
